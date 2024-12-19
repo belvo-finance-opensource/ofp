@@ -1,7 +1,10 @@
 [project]
 name = "ofp"
 version = "0.1.0"
-description = "Add your description here"
+description = "CLI to visualize Open Finance Participant information"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "requests>=2.32.3",
+    "typer>=0.15.1",
+]

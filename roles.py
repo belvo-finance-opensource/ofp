@@ -1,0 +1,26 @@
+from enum import Enum
+
+
+class Role(Enum):
+    CONTA = "CONTA"
+    DADOS = "DADOS"
+    PAGTO = "PAGTO"
+    CCORR = "CCORR"
+    CDTCAR = "CDTCAR"
+    CDTFIN = "CDTFIN"
+    CDTPES = "CDTPES"
+    CDTROV = "CDTROV"
+    CDTIMB = "CDTIMB"
+    CDTINV = "CDTINV"
+    CDTCAP = "CDTCAP"
+    CDTGCR = "CDTGCR"
+    INVTIT = "INVTIT"
+    INVFUN = "INVFUN"
+    INVCRI = "INVCRI"
+    INVCRA = "INVCRA"
+    INVDEB = "INVDEB"
+    INVACOE = "INVACOE"
+    INVDER = "INVDER"
+    INVPREV = "INVPREV"
+    INVCAP = "INVCAP"
+    INVFII = "INVFII"
