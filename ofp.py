@@ -297,13 +297,13 @@ def main(
             data = [
                 org for org in data 
                 if any(
-                    claim.get("Role") == role.code 
+                    claim.get("Role") == role.value 
                     for claim in org.get("OrgDomainRoleClaims", [])
                 )
             ]
             
             if not data:
-                console.print(f"[bold red]Error:[/bold red] No participants found with role={role.code}")
+                console.print(f"[bold red]Error:[/bold red] No participants found with role={role.value}")
                 raise typer.Exit(1)
         
         if json:
