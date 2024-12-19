@@ -303,8 +303,23 @@ def main(
             ]
             
             if not data:
-                console.print(f"[bold red]Error:[/bold red] No participants found with role={role.value}")
+                console.print(f"[bold red]Error:[/bold red] No participants found with role={role.code}")
                 raise typer.Exit(1)
+        
+        # Warn about printing all participants
+        elif not json:
+            participant_count = len(data)
+            console.print(f"\n[bold yellow]Warning:[/bold yellow] You are about to print information for [bold]{participant_count}[/bold] participants.")
+            console.print("This will generate a lot of output.")
+            console.print("\nConsider using filters to narrow down the results:")
+            console.print("  • Search by organization name/ID or registration number/ID: python ofp.py <search_term>")
+            console.print("  • Filter by role: python ofp.py --role <ROLE>")
+            console.print("  • Get specific auth server: python ofp.py --auth-server <ID>")
+            
+            if not typer.confirm("\nDo you want to continue?"):
+                raise typer.Exit()
+            
+            console.print()  # Add a blank line before output
         
         if json:
             print_json(data=data)
