@@ -109,7 +109,7 @@ The tool provides **formatted output** with the following details:
 
 ### Example of output
 
-![ofp-cli-output](./cli_output_rich.png)
+![ofp-cli-output](./assets/images/cli_output_rich.png)
 
 ## Tips
 
