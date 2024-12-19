@@ -4,7 +4,7 @@ A command-line tool to explore and debug Open Finance Participants information. 
 
 ## Requirements
 
-- Python 3.10+
+- Python 3.13+
 - uv (<https://docs.astral.sh/uv/>)
 
 ## Installation
@@ -33,13 +33,14 @@ A command-line tool to explore and debug Open Finance Participants information. 
 ### Basic Command Structure
 
 ```bash
-   python ofp.py [SEARCH_TERM] [OPTIONS]
+   python ofp.py [OPTIONS]
 ```
 
 Use `python ofp.py --help` to see all available options.
 
 ### Options
 
+- `--search`: Search for participants by name, registration number, registration ID, or organization ID.
 - `--role`: Filter participants by role (e.g., `DADOS`, `PAGTO`).
 - `--auth-server`: Show detailed information for a specific Authorization Server.
 - `--json`: Output raw JSON format.
@@ -54,28 +55,28 @@ Use `python ofp.py --help` to see all available options.
    python ofp.py  
 ```
 
-2. **Search by Organization Name** (exact match):
+2. **Search by Organization Name** (fuzzy match):
 
 ```bash
-   python ofp.py "Banco Itaú"  
+   python ofp.py --search itau
 ```
 
 3. **Search by Registration ID (ISPB)**:
 
 ```bash
-   python ofp.py 60701190  
+   python ofp.py --search 60701190
 ```
 
 4. **Search by Registration Number (CNPJ)**:
 
 ```bash
-   python ofp.py 60701190000104  
+   python ofp.py --search 60701190000104
 ```
 
 5. **Search by Organisation ID**:
 
 ```bash
-   python ofp.py 9c721898-9ce0-50f1-bf85-05075557850b
+   python ofp.py --search 9c721898-9ce0-50f1-bf85-05075557850b
 ```
 
 6. **Filter by role**:
@@ -87,7 +88,7 @@ Use `python ofp.py --help` to see all available options.
 7. **Get detailed API information for a specific Authorization Server**:
 
 ```bash
-   python ofp.py --auth-server 68308291-ec0d-4398-83ce-68b6b1087e49  
+   python ofp.py --auth-server 68308291-ec0d-4398-83ce-68b6b1087e49
 ```
 
 8. **Get JSON output** (useful for scripting):
@@ -102,7 +103,7 @@ The tool provides **formatted output** with the following details:
 
 - **Organization Details**:
   - Basic information
-  - Roles & Claims
+  - Role Claims
 - **Authorization Servers**:
   - Summary or detailed API information
 
@@ -112,6 +113,6 @@ The tool provides **formatted output** with the following details:
 
 ## Tips
 
-- Always try to use filters to narrow down results.
+- Always try to use search to narrow down results.
 - Use `--auth-server` when you need detailed API information.
 - Use `--json` for programmatic access to the data.
