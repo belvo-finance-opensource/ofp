@@ -9,3 +9,10 @@ dependencies = [
     "thefuzz>=0.22.1",
     "typer>=0.15.1",
 ]
+
+
+[tool.setuptools]
+packages = ["ofp"]
+
+[project.scripts]
+ofp = "ofp.ofp:app"
